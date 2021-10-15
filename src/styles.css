@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+.dvConfigure {
+  height: 30vh;
+}
+
+.largeInput {
+  height: 100%;
+  font-size: 7rem;
+}
