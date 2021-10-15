@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
   }
 
   decreased(){
-    if(this.patientCount > 0)
+    if(this.patientCount > 1)
        this.patientCount--;
   }
 
