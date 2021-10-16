@@ -15,6 +15,8 @@ export class MainComponent implements OnInit {
 
   patientCount : number=1;
   currentDailyCount : DailyPatientCount;
+  userLoggedIn:boolean = true;
+  lastUpdated:any;
 
   ngOnInit(): void {
     this.loadCurrentPatientNumber();
@@ -38,6 +40,7 @@ export class MainComponent implements OnInit {
       (res)=>{
         this.currentDailyCount = res as DailyPatientCount;
         this.patientCount = this.currentDailyCount.currentNumber;
+        this.loadLastUpdatedDate(this.currentDailyCount.channelledDate);
       },
       (err)=>{
         console.log(err);
@@ -48,9 +51,11 @@ export class MainComponent implements OnInit {
   updateDailyPatientCount(incrementOrDecrement:number){
     debugger;
     this.currentDailyCount.currentNumber += incrementOrDecrement;
+    this.currentDailyCount.channelledDate = new Date();
     this.service.updateDailyPatientCount(this.currentDailyCount,this.currentDailyCount.id).subscribe(
       (res)=>{
            this.patientCount += incrementOrDecrement;
+           this.loadLastUpdatedDate(this.currentDailyCount.channelledDate);
       },
       (err)=>{
         console.log("error",err);        
@@ -61,6 +66,11 @@ export class MainComponent implements OnInit {
   currentNumberChanged(){
     this.currentDailyCount.currentNumber = this.patientCount;
     this.updateDailyPatientCount(0);
+  }
+
+
+  loadLastUpdatedDate(dateTime : any){
+    this.lastUpdated = new Date(dateTime).toLocaleString();
   }
 
   
