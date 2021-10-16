@@ -7,8 +7,8 @@
 <div class="d-flex justify-content-center align-items-center">
     <div class="col-md-3 dvConfigure">
         <input class="form-control text-center largeInput" 
-        type="number" min="1" [(ngModel)]="patientCount"
-        max="999">
+        type="number" [min]="1" [(ngModel)]="patientCount" (change)="currentNumberChanged()"
+        [max]="999">
     </div>
 </div>
 
@@ -16,8 +16,8 @@
 
 <div class="row justify-content-center">
     <div class="d-flex justify-content-between col-md-3">
-        <button [ngClass]="{'btn-secondary':patientCount==999}" class="btn btn-primary "><i class="far fa-plus-square fa-7x fa-test"  (click)="increased()"></i></button>
-        <button [ngClass]="{'btn-secondary':patientCount==1}" class="btn btn-primary"><i class="far fa-minus-square fa-7x fa-test"  (click)="decreased()"></i></button>            
+        <button [ngClass]="{'btn-secondary':patientCount==999}" class="btn btn-primary "><i class="far fa-plus-square fa-7x"  (click)="increased()"></i></button>
+        <button [ngClass]="{'btn-secondary':patientCount==1}" class="btn btn-primary"><i class="far fa-minus-square fa-7x"  (click)="decreased()"></i></button>            
     </div>
     
 </div>
