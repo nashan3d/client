@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
 
   patientCount : number=1;
   currentDailyCount : DailyPatientCount;
-  userLoggedIn:boolean = true;
+  userLoggedIn:boolean = false;
   lastUpdated:any;
 
   ngOnInit(): void {
