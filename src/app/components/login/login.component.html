@@ -1,0 +1,14 @@
+<div class="input-group col-md-6 mb-2 mt-2">
+    <div class="d-flex w-100" *ngIf="!userLoggedIn">  
+        <input id="txtUsername" type="text" name="username" placeholder="User Name" 
+        class="form-control  me-3">
+        <input id="txtPassword" type="password" name="Password" placeholder="Password" 
+        class="form-control me-2">
+        <button type="button" class="btn btn-bg-color btn-text-color">Login</button>
+   </div> 
+   <div *ngIf="userLoggedIn" class="d-flex w-100 justify-content-end">
+        <button type="button" 
+        class="btn btn-bg-color btn-text-color me-2">Logged In</button>
+        <span class="text-center">{{loggedInUserName}}</span>
+   </div> 
+</div>

@@ -1,23 +1,33 @@
-<div class="jumbotron py-3">
-    <h1 class="text-center"> Current Patient Number</h1>
-    <span class="text-center justify-content-center">
-        Last Updated : <b>{{lastUpdated}}</b></span>
-</div>
+<div class="container">
+    <app-login [userLoggedIn]="userLoggedIn"></app-login>
 
-<div class="d-flex justify-content-center align-items-center">
-    <div class="col-md-3 dvConfigure">
-        <input class="form-control text-center largeInput" 
-        type="number" [min]="1" [(ngModel)]="patientCount" (change)="currentNumberChanged()"
-        [max]="999">
+    <div class="jumbotron py-3">
+        <h1 class="text-center">Patient Number</h1>
+        <span class=" d-flex text-center justify-content-center">
+            Last Updated : <b>{{lastUpdated}}</b></span>
     </div>
-</div>
 
-<br>
-
-<div class="row justify-content-center">
-    <div class="d-flex justify-content-between col-md-3">
-        <button [hidden]="!userLoggedIn" [ngClass]="{'btn-secondary':patientCount==999}" class="btn btn-primary "><i class="far fa-plus-square fa-7x"  (click)="increased()"></i></button>
-        <button [hidden]="!userLoggedIn" [ngClass]="{'btn-secondary':patientCount==1}" class="btn btn-primary"><i class="far fa-minus-square fa-7x"  (click)="decreased()"></i></button>            
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-md-3 dvConfigure" >
+            <input class="form-control text-center largeInput w-100
+            shadow-lg p-3 mb-5 bg-body rounded" [disabled]="!userLoggedIn"
+            type="number" [min]="1" [(ngModel)]="patientCount" (change)="currentNumberChanged()"
+            [max]="999">
+        </div>
     </div>
-    
+
+    <br>
+
+    <div class="row justify-content-center" *ngIf="userLoggedIn">
+        <div class="d-flex justify-content-between col-md-3">
+            
+            <button  [ngClass]="{'btn-secondary':patientCount==999}" 
+                     class="btn btn-bg-color btn-text-color w-25 btn-text-size" 
+                     (click)="increased()"><b>+</b></button>
+            <button  [ngClass]="{'btn-secondary':patientCount==1}" 
+                     class="btn btn-bg-color btn-text-color w-25 btn-text-size" 
+                     (click)="decreased()"><b>-</b></button>            
+        </div>
+        
+    </div>
 </div>

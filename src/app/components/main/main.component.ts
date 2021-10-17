@@ -36,7 +36,7 @@ export class MainComponent implements OnInit {
   }
 
   loadCurrentPatientNumber(){
-    this.service.getCurrentPatientNumber(1).subscribe(
+    this.service.getCurrentPatientNumber(2).subscribe(
       (res)=>{
         this.currentDailyCount = res as DailyPatientCount;
         this.patientCount = this.currentDailyCount.currentNumber;
@@ -52,6 +52,7 @@ export class MainComponent implements OnInit {
     debugger;
     this.currentDailyCount.currentNumber += incrementOrDecrement;
     this.currentDailyCount.channelledDate = new Date();
+    debugger;
     this.service.updateDailyPatientCount(this.currentDailyCount,this.currentDailyCount.id).subscribe(
       (res)=>{
            this.patientCount += incrementOrDecrement;

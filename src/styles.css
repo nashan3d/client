@@ -4,7 +4,18 @@
   height: 30vh;
 }
 
-.largeInput {
-  height: 100%;
+.largeInput { 
   font-size: 7rem;
+}
+
+.btn-bg-color{
+  background-color: #d6139f;
+}
+
+.btn-text-color{
+  color: white;
+}
+
+.btn-text-size{
+  font-size: 2.5rem;
 }

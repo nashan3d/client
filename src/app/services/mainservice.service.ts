@@ -18,6 +18,7 @@ export class MainserviceService {
   }
 
   updateDailyPatientCount(dailyPatientCount : DailyPatientCount,id:number){
+    debugger;
     return this.http.put(`${this.baseUrl}/${this.patientCountControllerName}/${id}`,dailyPatientCount);
   }
 }
